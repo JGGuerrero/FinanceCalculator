@@ -11,7 +11,7 @@ m = input("How many times in a period is it compounded?")
 # RATE FORMULA============================================================================================================================
 if (rate.isalpha()):
     rate = ((int(futureValue)/int(presentValue))**(1/int(nper))-1)*100
-    print("Rate is: ", round(rate, 2) )
+    print("Rate is: ", round(rate, 2))
 # ===========================================================================================================================================
 
 # FUTURE VALUE FORMULAS========================================================================================================================
@@ -31,9 +31,16 @@ elif (nper.isalpha()):
 # ======================================================================================================================================
 
 # PRESENT VALUE FORMULA ================================================================================================================
+elif ((presentValue.isalpha()) & (int(m) > 1)):
+    presentValue = int(futureValue) / ((1 + round(float(rate)/int(m), 6)))**(int(nper)*int(m))
+    print("Present Value is: ", round(presentValue, 4))
+
 elif (presentValue.isalpha()):
     presentValue = int(futureValue) / ((1 + float(rate)))**int(nper)
     print("Present Value is: ", round(presentValue, 4))
+
+
+
 # ======================================================================================================================================
 else:
     print("ERROR - CHECK IF FUTURE VALUE IS CONT OR COMPOUNDED")
